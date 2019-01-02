@@ -4,7 +4,7 @@ module.exports = function (sequelize, DataTypes){
         first_name: DataTypes.STRING,
         last_name: DataTypes.STRING,
         screen_name: DataTypes.STRING,
-        annual_goal_posts: DataTypes.INTEGER
+        goal_yearly_posts: DataTypes.INTEGER
     })
     return Contributor;
 }

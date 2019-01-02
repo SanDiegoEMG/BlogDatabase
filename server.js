@@ -28,6 +28,12 @@ app.get("/api/contributors", function(req, res){
   });
 });
 
+app.post("/api/contributors", function (req,res){
+  db.Contributor.create(req.body).then(function(data){
+    res.json(data)
+  })
+})
+
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
 db.sequelize.sync({force: true}).then(function () {
