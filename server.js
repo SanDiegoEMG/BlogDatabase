@@ -15,7 +15,7 @@ var db = require("./models");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Routes  ==========================================================
+// Routes for CONTRIBUTORS ==================================================
 // require("./routes/api-routes.js")(app);
 
 app.get("/", function (req, res) {
@@ -30,6 +30,19 @@ app.get("/api/contributors", function(req, res){
 
 app.post("/api/contributors", function (req,res){
   db.Contributor.create(req.body).then(function(data){
+    res.json(data)
+  })
+})
+
+// Routes for POSTS ==================================================
+app.get("/api/posts", function(req, res){
+  db.Post.findAll({}).then(function(data){
+    res.json(data);
+  });
+});
+
+app.post("/api/posts", function (req,res){
+  db.Post.create(req.body).then(function(data){
     res.json(data)
   })
 })
