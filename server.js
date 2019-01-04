@@ -19,7 +19,7 @@ app.use(express.json());
 // require("./routes/api-routes.js")(app);
 
 app.get("/", function (req, res) {
-  res.send("Keep Calm and Code on!!")
+  res.send("Keep Calm and Code on!! Even when the going is slow ....")
 });
 
 app.get("/api/contributors", function(req, res){
