@@ -18,34 +18,40 @@ app.use(express.json());
 // Routes for CONTRIBUTORS ==================================================
 // require("./routes/api-routes.js")(app);
 
+// Static directory
+app.use(express.static("public"));
+
+
 app.get("/", function (req, res) {
   res.send("Keep Calm and Code on!! Even when the going is slow ....")
 });
+ 
 
-app.get("/api/contributors", function(req, res){
-  db.Contributor.findAll({}).then(function(data){
-    res.json(data);
-  });
-});
+// ========== NOW IN OWN FOLDERS ================
+// app.get("/api/contributors", function(req, res){
+//   db.Contributor.findAll({}).then(function(data){
+//     res.json(data);
+//   });
+// });
 
-app.post("/api/contributors", function (req,res){
-  db.Contributor.create(req.body).then(function(data){
-    res.json(data)
-  })
-})
+// app.post("/api/contributors", function (req,res){
+//   db.Contributor.create(req.body).then(function(data){
+//     res.json(data)
+//   });
+// });
 
-// Routes for POSTS ==================================================
-app.get("/api/posts", function(req, res){
-  db.Post.findAll({}).then(function(data){
-    res.json(data);
-  });
-});
+// // Routes for POSTS ==================================================
+// app.get("/api/posts", function(req, res){
+//   db.Post.findAll({}).then(function(data){
+//     res.json(data);
+//   });
+// });
 
-app.post("/api/posts", function (req,res){
-  db.Post.create(req.body).then(function(data){
-    res.json(data)
-  })
-})
+// app.post("/api/posts", function (req,res){
+//   db.Post.create(req.body).then(function(data){
+//     res.json(data)
+//   });
+// });
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
